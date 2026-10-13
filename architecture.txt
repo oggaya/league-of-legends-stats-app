@@ -1,0 +1,14 @@
+PROJET/
+├── .env                # Variables d'environnement (Clé API)
+├── .gitignore          # Fichiers ignorés par Git
+├── requirements.txt    # Liste de vos bibliothèques (générée via: pip freeze > requirements.txt)
+├── data/               # Cache local des matchs JSON
+├── src/                # Code source principal
+│   ├── api/            
+│   │   └── riot_client.py    # Appels API (votre get_puuid, get_match_ids, get_match)
+│   ├── processing/     
+│   │   ├── parser.py         # Extraction des données brutes (votre fonction match_to_row)
+│   │   └── stats_engine.py   # Calculs Pandas (KDA, CS/min, aggrégations)
+│   └── ui/             
+│       └── dashboard.py      # Affichage des statistiques (remplacera vos print)
+└── main.py             # Point d'entrée minimaliste qui relie src/api, src/processing et src/ui
