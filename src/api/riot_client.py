@@ -34,3 +34,11 @@ def get_match(match_id):
     match = lol.match.by_id(ROUTING, match_id)
     path.write_text(json.dumps(match), encoding="utf-8")
     return match
+
+def get_rank(puuid):
+    """Retourne les infos de rank solo/duo via le puuid (API v4+)."""
+    entries = lol.league.by_puuid(REGION, puuid)
+    for entry in entries:
+        if entry["queueType"] == "RANKED_SOLO_5x5":
+            return entry  # contient tier, rank, leaguePoints, wins, losses
+    return None
